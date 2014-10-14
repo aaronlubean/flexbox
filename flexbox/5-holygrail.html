@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head><style type="text/css">
+    body { padding: 5px; font-weight: bold; text-align: center; }
+    .header { background: orange; }
+    .footer { background: lightblue; }
+    .main-content { background: lavender; text-align: left; }
+    .aside-1 { background: lightgreen; }
+    .aside-2 { background: yellow; }
+
+    .flex-container {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .flex-item {
+        padding: 15px;
+        flex: 1 1 100%;
+    }
+
+    /* Very Small screens */
+    /* No media query - Our mobile-first approach relies on source order */
+
+    @media all and (min-width: 600px) { /* Smaller screens (big phones, small tablets) */
+        .aside-1, .aside-2 { flex: 1 1 0; }
+    }
+
+    @media all and (min-width: 900px) { /* Medium screens (big tablets, small laptops/desktops) */
+        .aside-1 { order: 3; flex: 1 1 100%; }
+        .main-content { order: 2; flex: 3 1 0; }
+        .aside-2 { order: 1; flex: 1 1 0; }
+        .footer  { order: 4; }
+    }
+
+    @media all and (min-width: 1200px) { /* Large screens (large laptops/desktops, 4k smart TVs, etc.) */
+        .aside-1 { order: 1; flex: 1 1 0; }
+        .main-content { order: 2; flex: 3 1 0; }
+        .aside-2 { order: 3; flex: 1 1 0; }
+        .footer  { order: 4; }
+    }
+</style></head>
+<body>
+<div class="flex-container">
+    <div class="flex-item header">Header</div>
+    <div class="flex-item main-content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+    <div class="flex-item aside-1">Aside 1</div>
+    <div class="flex-item aside-2">Aside 2</div>
+    <div class="flex-item footer">Footer</div>
+</div>
+</body>
+</html>

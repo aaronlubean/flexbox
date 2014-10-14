@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head><style type="text/css">
+    .flex-container {
+        display: flex;
+    }
+    .flex-item {
+        background: orange;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 22px;
+        border: 4px solid brown;
+    }
+    /*
+        Due to flex-basis, both items want to be 300px.
+        Due to flex-grow, when the container is > 600px, item 2 will grow 3 times as fast as item 1.
+        Due to flex-shrink, when the container is < 600px, item 2 will shrink 3 times as fast as item 1.
+        NOTE: Clearly this behaves differently than using percentage widths.
+    */
+    .item-1 {
+        flex: 1 1 300px;
+    }
+    .item-2 {
+        flex: 3 3 300px;
+    }
+</style></head>
+<body>
+<div class="flex-container">
+    <div class="flex-item item-1">Item 1</div>
+    <div class="flex-item item-2">Item 2</div>
+</div>
+</body>
+</html>
